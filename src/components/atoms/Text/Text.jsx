@@ -1,16 +1,5 @@
 import React from 'react'
 
-// type TextPossibleTypes =
-//   | "custom" // Should be used in very rare cases
-//   | "heroTitle"
-//   | "mainTitle"
-//   | "secondTitle"
-//   | "title"
-//   | "subtitle"
-//   | "paragraph"
-//   | "paragraphSmall"
-//   | "paragraphLight";
-
 export const Text = ({
   children,
   type,

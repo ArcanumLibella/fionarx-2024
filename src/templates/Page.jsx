@@ -4,6 +4,7 @@ import { blockRendererComponent } from "../config/blockRendererComponent";
 import { PageLayout } from "../components/layouts";
 // import HomePage from "../pages";
 import { Hero } from "../components/organisms/Hero";
+import { Link } from "gatsby";
 
 const Page = (props) => {
   const { title, blocks, isFrontPage } = props.pageContext
@@ -16,6 +17,10 @@ const Page = (props) => {
           <BlockRendererProvider 
             allBlocks={blocks} 
             renderComponent={blockRendererComponent}
+            siteDomain={process.env.GATSBY_WP_URL}
+            customInternalLinkComponent={({children, internalHref, className}, index) => 
+              <Link key={index} to={internalHref} className={className}>{children}</Link>
+            }
           />
         </PageLayout>
       )

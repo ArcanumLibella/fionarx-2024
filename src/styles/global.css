@@ -107,19 +107,11 @@ strong {
   font-display: swap;
 }
 
-/* STYLE OVERHIDE */
+/* LAYOUT OVERHIDE */
 
 .has-global-padding {
   padding: 0 !important;
 }
-
-/* .has-global-padding > .alignfull {
-  margin: 0 !important;
-} */
-
-/* .align-full {
-  max-width: 100% !important;
-} */
 
 .no-scroll-bar-div::-webkit-scrollbar {
   display: none;
@@ -134,8 +126,15 @@ strong {
   display: none;
 }
 
-  /* Hide scrollbar for IE, Edge add Firefox */
-  .scrollbar-hidden {
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollbar-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none; /* Firefox */
+}
+
+/* COMPONENT OVERHIDING */
+
+body .is-layout-constrained > .separator {
+  max-width: 33% !important;
+  margin-left: 0 !important;
 }
