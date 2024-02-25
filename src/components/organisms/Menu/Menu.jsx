@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// import { GithubIcon, LinkedinIcon, MaltIcon } from "@/assets/icons";
+import { GithubIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
 import { NavButton } from "../../molecules/NavButton";
 // import { COLORS } from "@/constants/Colors";
 // import { useIsMobile } from "@/utils/useWindowSize";
@@ -9,21 +9,7 @@ import { NavButton } from "../../molecules/NavButton";
 import { useState } from "react";
 // import { useOuterClick } from "@/hooks/useOutsideClick";
 import { MenuItem } from "../../atoms/MenuItem";
-
-const menuItems = [
-  {
-    label: "Projects",
-    path: "/projects",
-  },
-  {
-    label: "About me",
-    path: "/about",
-  },
-  {
-    label: "Contact",
-    path: "/contact",
-  },
-];
+import { useStaticQuery, graphql } from "gatsby";
 
 const menuItemsVariants = {
   closed: {
@@ -67,6 +53,27 @@ const menuItemVariants = {
 };
 
 export const Menu = () => {
+  const data = useStaticQuery(graphql`
+    query MainMenuQuery {
+      wp {
+        acfOptionsMainMenu {
+          mainMenu {
+            menuItems {
+              label
+              path {
+                ... on WpPage {
+                  uri
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
+
   // const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const innerRef = useOuterClick(() => {
@@ -116,7 +123,6 @@ export const Menu = () => {
                   />
                 </motion.li>
               )} */}
-              {/* TODO: À dynamiser */}
               {menuItems.map((item) => {
                 return (
                   <motion.li
