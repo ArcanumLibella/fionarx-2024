@@ -1,9 +1,12 @@
 import React from 'react';
 import { Hero } from "../components/organisms/Hero";
+import { MainLayout } from "../components/layouts/MainLayout";
 
 const HomePage = () => {
   return (
+    <MainLayout>
       <Hero />
+    </MainLayout>
   );
 };
 

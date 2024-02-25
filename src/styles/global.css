@@ -138,3 +138,7 @@ body .is-layout-constrained > .separator {
   max-width: 33% !important;
   margin-left: 0 !important;
 }
+
+body a {
+  text-decoration: none;
+}

@@ -2,28 +2,22 @@ import React from "react";
 import { BlockRendererProvider } from "@webdeveducation/wp-block-tools";
 import { blockRendererComponent } from "../config/blockRendererComponent";
 import { PageLayout } from "../components/layouts";
-// import HomePage from "../pages";
-import { Hero } from "../components/organisms/Hero";
 import { Link } from "gatsby";
 
 const Page = (props) => {
-  const { title, blocks, isFrontPage } = props.pageContext
+  const { title, blocks } = props.pageContext
 
   return (
-      isFrontPage ? (
-        <Hero />
-      ) : (
-        <PageLayout title={title} className="overflow-y-auto xl:pb-48">
-          <BlockRendererProvider 
-            allBlocks={blocks} 
-            renderComponent={blockRendererComponent}
-            siteDomain={process.env.GATSBY_WP_URL}
-            customInternalLinkComponent={({children, internalHref, className}, index) => 
-              <Link key={index} to={internalHref} className={className}>{children}</Link>
-            }
-          />
-        </PageLayout>
-      )
+    <PageLayout title={title} className="overflow-y-auto xl:pb-48">
+      <BlockRendererProvider 
+        allBlocks={blocks} 
+        renderComponent={blockRendererComponent}
+        siteDomain={process.env.GATSBY_WP_URL}
+        customInternalLinkComponent={({children, internalHref, className}, index) => 
+          <Link key={index} to={internalHref} className={className}>{children}</Link>
+        }
+      />
+    </PageLayout>
   )
 }
 
