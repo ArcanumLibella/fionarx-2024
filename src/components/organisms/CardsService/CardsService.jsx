@@ -33,7 +33,7 @@ const cardServiceItems = [
 
 export const CardsService = () => {
   return (
-    <div className="flex flex-wrap gap-8 px-4 mb-12 -mx-4 md:px-8 md:-mx-8 xl:px-0 xl:mx-0 xl:gap-10">
+    <div className="flex md:flex-wrap gap-8 px-4 mb-12 -mx-4 md:px-8 md:-mx-8 xl:px-0 xl:mx-0 xl:gap-10">
       {cardServiceItems.map((card) => {
         return (
           <CardService

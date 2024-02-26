@@ -49,7 +49,7 @@ export const Text = ({
     case "paragraphXL":
       return (
         <p
-          className={`font-brother font-medium text-mlg xl:text-md 2xl:text-xlg -tracking-wide selection:bg-purple ${additionalStyle}`}
+          className={`font-brother font-medium text-mlg xl:text-md 2xl:text-lg -tracking-wide selection:bg-purple ${additionalStyle}`}
         >
           {children}
         </p>

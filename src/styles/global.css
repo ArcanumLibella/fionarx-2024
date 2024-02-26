@@ -109,6 +109,11 @@ strong {
 
 /* LAYOUT OVERHIDE */
 
+body .is-layout-constrained > p {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+}
+
 .has-global-padding {
   padding: 0 !important;
 }
