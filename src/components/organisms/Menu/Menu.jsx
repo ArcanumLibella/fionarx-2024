@@ -1,16 +1,16 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { useState } from "react";
+import { useIsMobile } from "../../../utils/useWindowSize";
+// import { useOuterClick } from "@/hooks/useOutsideClick";
 import { AnimatePresence, motion } from "framer-motion";
+import { NavButton } from "../../molecules/NavButton";
+import { MenuItem } from "../../atoms/MenuItem";
 
 import { GithubIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
-import { NavButton } from "../../molecules/NavButton";
-// import { COLORS } from "@/constants/Colors";
-// import { useIsMobile } from "@/utils/useWindowSize";
+import { COLORS } from "../../../constants/Colors";
 
-import { useState } from "react";
-// import { useOuterClick } from "@/hooks/useOutsideClick";
-import { MenuItem } from "../../atoms/MenuItem";
-import { useStaticQuery, graphql } from "gatsby";
-
+// TODO: Externaliser ces constantes
 const menuItemsVariants = {
   closed: {
     transition: {
@@ -25,7 +25,6 @@ const menuItemsVariants = {
     },
   },
 };
-
 const socialItemsVariants = {
   closed: {
     transition: {
@@ -40,7 +39,6 @@ const socialItemsVariants = {
     },
   },
 };
-
 const menuItemVariants = {
   closed: {
     translateX: "-10%",
@@ -53,6 +51,7 @@ const menuItemVariants = {
 };
 
 export const Menu = () => {
+  // TODO: Externaliser cette query
   const data = useStaticQuery(graphql`
     query MainMenuQuery {
       wp {
@@ -72,9 +71,8 @@ export const Menu = () => {
     }
   `);
 
-const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
-
-  // const isMobile = useIsMobile();
+  const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const innerRef = useOuterClick(() => {
   //   setIsMenuOpen(false);
@@ -111,18 +109,18 @@ const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
               exit="closed"
               variants={menuItemsVariants}
             >
-              {/* {isMobile && (
+              {isMobile && (
                 <motion.li
                   variants={menuItemVariants}
                   whileHover={{ scale: 1.05 }}
                 >
                   <MenuItem
                     toggleMenuItem={toggleMenuItem}
-                    label="Home"
+                    label="Accueil"
                     path="/"
                   />
                 </motion.li>
-              )} */}
+              )}
               {menuItems.map((item) => {
                 return (
                   <motion.li
@@ -136,7 +134,7 @@ const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
               })}
             </motion.ul>
             {/* TODO: A refaire plus tard */}
-            {/* {isMobile && (
+            {isMobile && (
               <motion.div
                 initial="closed"
                 animate="open"
@@ -187,7 +185,7 @@ const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
                   />
                 </motion.a>
               </motion.div>
-            )} */}
+            )}
           </motion.nav>
         )}
       </AnimatePresence>

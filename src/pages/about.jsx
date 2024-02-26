@@ -2,6 +2,7 @@ import React from "react";
 import { Separator } from "../components/atoms/Separator";
 import { Text } from "../components/atoms/Text";
 import { PageLayout } from "../components/layouts/PageLayout";
+import { CardsService } from "../components/organisms/CardsService";
 // import { StackItems } from "../components/molecules/StackItems";
 // import { CardsService } from "../components/organisms/CardsService";
 
@@ -23,6 +24,7 @@ const AboutPage = () => {
       <Text type="paragraphLarge" className="mb-8 lg:mb-12 text-white">
         Pour cela, je m'engage à respecter les <strong>meilleures pratiques</strong> de design et de développement, en suivant les dernières tendances et les principes de l'<strong>atomic design</strong>, du responsive design, de l'accessibilité et du référencement naturel.
       </Text>
+      <CardsService />
     </PageLayout>
   );
 };

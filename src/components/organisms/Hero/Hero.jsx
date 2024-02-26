@@ -11,7 +11,7 @@ export const Hero = () => {
       <Text type="h1" className="mb-4">Branding</Text>
       <Text type="h1" className="mb-4">Web Design</Text>
       <Text type="h1" className="mb-4">Site vitrine & E-commerce</Text>
-      <Link rel="canonical" to="/about" className="z-10 no-underline mb-4">
+      <Link rel="canonical" to="/a-propos" className="z-10 no-underline mb-4">
         <h1 className="text-[12vw] font-black uppercase cursor-pointer select-none md:text-[10vw] lg-text-[10vh] xl:text-[12vh] font-brother text-white">
           Fiona Roux
         </h1>
