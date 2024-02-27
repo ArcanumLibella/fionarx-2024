@@ -9,7 +9,7 @@ export const ListItem = ({ index, content }) => {
           {index}
         </Text>
       </span>
-      <Text type="paragraphLarge">
+      <Text type="paragraphLight">
         {content}
       </Text>
     </li>

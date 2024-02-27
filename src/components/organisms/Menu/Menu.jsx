@@ -45,7 +45,7 @@ const menuItemVariants = {
     opacity: 0,
   },
   open: {
-    translateX: "15%",
+    translateX: "10%",
     opacity: 1,
   },
 };

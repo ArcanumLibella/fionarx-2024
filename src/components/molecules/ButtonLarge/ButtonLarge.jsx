@@ -18,7 +18,7 @@ export const ButtonLarge = ({
     >
       <Text 
         type="custom"
-        className="font-brother font-black text-base text-tomato group-hover:text-white group-hover:duration-300 uppercase"
+        className="font-brother font-black text-base text-center text-tomato group-hover:text-white group-hover:duration-300 uppercase"
       >
         {label}
       </Text>
