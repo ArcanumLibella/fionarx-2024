@@ -31,7 +31,6 @@ module.exports = {
       },
       fontFamily: {
         brother: ['Brother', 'Impact', 'sans-serif'],
-        goku: ['Goku', 'Impact', 'sans-serif'],
         body: ['Josefin Sans', 'sans-serif'],
       },
       fontSize: {
@@ -57,7 +56,7 @@ module.exports = {
         "xxl": '8rem', // 128px
       },
       letterSpacing: {
-        tightest: '-0.5rem', // -8px
+        tightest: '-0.4rem', // -8px
         tight: '-0.2rem', // -2px
         widest: '0.5rem', // 8px
       },

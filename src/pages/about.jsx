@@ -3,9 +3,6 @@ import { Separator } from "../components/atoms/Separator";
 import { Text } from "../components/atoms/Text";
 import { PageLayout } from "../components/layouts/PageLayout";
 import { CardsService } from "../components/organisms/CardsService";
-import { ListItem } from "../components/molecules/ListItem";
-// import { StackItems } from "../components/molecules/StackItems";
-// import { CardsService } from "../components/organisms/CardsService";
 
 const AboutPage = () => {
   return (

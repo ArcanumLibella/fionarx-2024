@@ -3,28 +3,28 @@ import React from "react";
 import { GithubIcon, InstagramIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
 import { COLORS } from "../../../constants/Colors";
 
-const socialIcons = [
-  {
-    label: 'Linkedin',
-    path: '/projects',
-    icon: 'Linkedin',
-  },
-  {
-    label: 'Malt',
-    path: '/about',
-    icon: 'Malt',
-  },
-  {
-    label: 'Github',
-    path: '/skills',
-    icon: 'Github',
-  },
-  {
-    label: 'Instagram',
-    path: '/contact',
-    icon: 'Instagram',
-  },
-];
+// const socialIcons = [
+//   {
+//     label: 'Linkedin',
+//     path: '/projects',
+//     icon: 'Linkedin',
+//   },
+//   {
+//     label: 'Malt',
+//     path: '/about',
+//     icon: 'Malt',
+//   },
+//   {
+//     label: 'Github',
+//     path: '/skills',
+//     icon: 'Github',
+//   },
+//   {
+//     label: 'Instagram',
+//     path: '/contact',
+//     icon: 'Instagram',
+//   },
+// ];
 
 export const SocialIcons = ({
   className: additionalStyle,
