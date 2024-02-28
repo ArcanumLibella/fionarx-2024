@@ -137,6 +137,10 @@ body .is-layout-constrained > .wp-block-spacer {
     margin-block-end: unset;
 }
 
+body .is-layout-constrained > .wp-block-heading {
+  max-width: initial !important;
+}
+
 body .is-layout-constrained > .separator {
   max-width: 33% !important;
 }

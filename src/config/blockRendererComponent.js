@@ -4,6 +4,7 @@ import { Button } from "../components/molecules/Button";
 import { Quote } from "../components/atoms/Quote";
 import { ButtonLarge } from "../components/molecules/ButtonLarge";
 import { ListItem } from "../components/molecules/ListItem";
+import { CardService } from "../components/molecules/CardService/CardService";
 
 export const blockRendererComponent = (block) => {  
   switch (block.name) {
@@ -37,6 +38,15 @@ export const blockRendererComponent = (block) => {
           key={block.id}
           index={block.attributes.data.index}
           content={block.attributes.data.content}
+        />
+      )
+    }
+    case "frx/cardservice": {
+      return (
+        <CardService 
+          key={block.id}
+          title={block.attributes.data.title}
+          description={block.attributes.data.description}
         />
       )
     }
