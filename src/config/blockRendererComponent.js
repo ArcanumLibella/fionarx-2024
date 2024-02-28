@@ -1,6 +1,5 @@
 import React from "react";
 import { Separator } from "../components/atoms/Separator";
-import { Button } from "../components/molecules/Button";
 import { Quote } from "../components/atoms/Quote";
 import { ButtonLarge } from "../components/molecules/ButtonLarge";
 import { ListItem } from "../components/molecules/ListItem";

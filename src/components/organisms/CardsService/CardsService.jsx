@@ -1,7 +1,6 @@
 import React from "react";
 import { CardService } from "../../molecules/CardService/CardService";
 
-{/* TODO: À dynamiser ! */}
 const cardServiceItems = [
   {
     title: "Branding",

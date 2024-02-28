@@ -40,6 +40,7 @@ export const SocialIcons = ({
         href="https://www.malt.fr/profile/fionaroux"
         target="_blank"
         rel="noreferrer"
+        aria-label="Lien vers Malt"
       >
         <MaltIcon
           fill={COLORS.white.DEFAULT}
@@ -50,6 +51,7 @@ export const SocialIcons = ({
         href="https://www.linkedin.com/in/fionaroux/"
         target="_blank"
         rel="noreferrer"
+        aria-label="Lien vers Linkedin"
       >
         <LinkedinIcon
           fill={COLORS.white.DEFAULT}
@@ -60,6 +62,7 @@ export const SocialIcons = ({
         href="https://github.com/ArcanumLibella"
         target="_blank"
         rel="noreferrer"
+        aria-label="Lien vers Github"
       >
         <GithubIcon
           fill={COLORS.white.DEFAULT}
@@ -70,6 +73,7 @@ export const SocialIcons = ({
         href="https://www.instagram.com/sukhakulii/"
         target="_blank"
         rel="noreferrer"
+        aria-label="Lien vers Instagram"
       >
         <InstagramIcon
           fill={COLORS.white.DEFAULT}

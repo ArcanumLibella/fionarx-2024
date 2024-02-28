@@ -46,7 +46,7 @@ export const useOuterClick = (
         callbackRef.current(e);
       }
     }
-  }, []); // no need for callback + innerRef dep
+  }, [eventType]); // no need for callback + innerRef dep
 
   return innerRef; // return ref; client can omit `useRef`
 };
