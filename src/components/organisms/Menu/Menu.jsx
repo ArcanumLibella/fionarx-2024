@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useState } from "react";
 import { useIsMobile } from "../../../utils/useWindowSize";
-// import { useOuterClick } from "@/hooks/useOutsideClick";
+import { useOuterClick } from "../../../hooks/useOutsideClick";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavButton } from "../../molecules/NavButton";
 import { MenuItem } from "../../atoms/MenuItem";
@@ -74,9 +74,9 @@ export const Menu = () => {
   const menuItems = data.wp.acfOptionsMainMenu.mainMenu.menuItems;
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const innerRef = useOuterClick(() => {
-  //   setIsMenuOpen(false);
-  // }, "click");
+  const innerRef = useOuterClick(() => {
+    setIsMenuOpen(false);
+  }, "click");
 
   const openMenuHandler = (e) => {
     e.stopPropagation();
@@ -94,7 +94,7 @@ export const Menu = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            // ref={innerRef}
+            ref={innerRef}
             key="menuAside"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { Squash as Hamburger } from "hamburger-react";
 import { useIsMobile } from "../../../utils/useWindowSize";
-import { SocialIcons } from "../SocialIcons";
+// import { SocialIcons } from "../SocialIcons";
 
 
 export const NavButton = ({ openMenuHandler, isMenuOpen }) => {
