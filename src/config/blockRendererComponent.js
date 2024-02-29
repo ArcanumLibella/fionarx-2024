@@ -4,12 +4,27 @@ import { Quote } from "../components/atoms/Quote";
 import { ButtonLarge } from "../components/molecules/ButtonLarge";
 import { ListItem } from "../components/molecules/ListItem";
 import { CardService } from "../components/molecules/CardService/CardService";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { getClasses, getStyles } from "@webdeveducation/wp-block-tools";
 
 export const blockRendererComponent = (block) => {  
   switch (block.name) {
     case "core/separator": {
       return (
         <Separator key={block.id} />
+      )
+    }
+    case "core/image": {
+      return (
+        <figure key={block.id} className={getClasses(block)}>
+          <GatsbyImage 
+            style={getStyles(block)}
+            image={block.attributes.gatsbyImage}
+            alt={block.attributes.alt || 'An image'}
+            width={block.attributes.width}
+            height={block.attributes.height}
+          />
+        </figure>
       )
     }
     case "frx/buttonlarge": {
