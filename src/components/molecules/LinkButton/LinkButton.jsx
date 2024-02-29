@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowLeftIcon, ArrowRightIcon } from "../assets/icons";
-import { Text } from "../components/atoms/Text";
-import { COLORS } from "../constants/Colors";
+// import { ArrowLeftIcon, ArrowRightIcon } from "../assets/icons";
+import { Text } from "../../atoms/Text";
+// import { COLORS } from "../constants/Colors";
 import { Link } from "gatsby";
 
 export const LinkButton = ({
@@ -10,22 +10,22 @@ export const LinkButton = ({
   path,
   className: additionalStyle,
 }) => {
-  const handleSideArrow = () => {
-    if (side === "left") {
-      return (
-        <ArrowLeftIcon
-          fill={COLORS.white.DEFAULT}
-          className="mr-2 transition-all group-hover:-translate-x-1"
-        />
-      );
-    }
-    return (
-      <ArrowRightIcon
-        fill={COLORS.white.DEFAULT}
-        className="ml-2 transition-all group-hover:translate-x-1"
-      />
-    );
-  };
+  // const handleSideArrow = () => {
+  //   if (side === "left") {
+  //     return (
+  //       <ArrowLeftIcon
+  //         fill={COLORS.white.DEFAULT}
+  //         className="mr-2 transition-all group-hover:-translate-x-1"
+  //       />
+  //     );
+  //   }
+  //   return (
+  //     <ArrowRightIcon
+  //       fill={COLORS.white.DEFAULT}
+  //       className="ml-2 transition-all group-hover:translate-x-1"
+  //     />
+  //   );
+  // };
 
   return (
     <Link
@@ -39,7 +39,7 @@ export const LinkButton = ({
       <Text type="custom" className="font-bold uppercase">
         {label}
       </Text>
-      {handleSideArrow()}
+      {/* {handleSideArrow()} */}
     </Link>
   );
 };

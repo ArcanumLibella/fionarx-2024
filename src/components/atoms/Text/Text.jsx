@@ -46,6 +46,14 @@ export const Text = ({
           {children}
         </h5>
       );
+    case "h6":
+      return (
+        <h6
+          className={`font-brother font-black text-normal text-tomato selection:bg-purple uppercase ${additionalStyle}`}
+        >
+          {children}
+        </h6>
+      );
     case "paragraphXL":
       return (
         <p
