@@ -5,11 +5,15 @@ import { Link } from "gatsby";
 import { ProjectLayout } from "../components/layouts";
 
 const ProjectPage = (props) => {
-  console.log("PROPS : ", props)
+  console.log("PROPS : ", props);
   const { title, blocks, tags, projectDetails } = props.pageContext
 
   return (
-    <ProjectLayout title={title} tags={tags.nodes} projectDetails={projectDetails} /* links={links} */>
+    <ProjectLayout
+      title={title}
+      tags={tags.nodes}
+      projectDetails={projectDetails}
+    >
       <BlockRendererProvider 
         allBlocks={blocks} 
         renderComponent={blockRendererComponent}

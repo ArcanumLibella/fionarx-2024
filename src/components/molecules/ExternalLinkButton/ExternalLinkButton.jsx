@@ -8,8 +8,6 @@ export const ExternalLinkButton = ({
   link,
   className: additionalStyle,
 }) => {
-
-  console.log("link : ", link)
   // const handleSideArrow = () => {
   //   if (side === "left") {
   //     return (

@@ -5,21 +5,32 @@ import { MainLayout } from "./MainLayout";
 import { Tag } from "../atoms/Tag";
 import { LinkButton } from "../molecules/LinkButton";
 import { ExternalLinkButton } from "../molecules/ExternalLinkButton";
-// import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-export const ProjectLayout = ({title, tags, projectDetails, children}) => {  
-  console.log("projectDetails : ", projectDetails)
+export const ProjectLayout = ({title, tags, projectDetails, children}) => {
+  const { year, links, gallery } = projectDetails
   return (
     <MainLayout>
       <div className="flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
-        <div className="overflow-hidden h-[60vh] xl:max-h-screen xl:h-screen">
-          {/* <GatsbyImage
-            image={image}
-            alt="Aperçu du projet"
-            imgClassName="h-full"
-          /> */}
+        <div className="overflow-auto h-[60vh] xl:max-h-screen xl:h-screen">
+          {/* TODO:
+            -REVOIR LE STYLE (mobile + desktop)
+            -Remplacer par un slider !
+          */}
+          {gallery && gallery.map((image, index) => {
+            return (
+              <figure key={index}>
+                <GatsbyImage
+                  image={image.gatsbyImage}
+                  alt={image.altText}
+                  width={image.width}
+                  height={image.height}
+                />
+              </figure>
+            )
+          })}
         </div>
-        <div className="relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[520px] xl:max-w-[35%]">
+        <div className="relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[580px] xl:max-w-[35%]">
           <LinkButton
             label="Retour"
             side="left"
@@ -36,7 +47,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
             {/* TAGS */}
             <div className="justify-between mb-10 md:flex">
               <div className="flex flex-wrap items-start w-full gap-2 mb-8 md:mb-0 md:gap-4">
-                {tags.map((tag) => {
+                {tags && tags.map((tag) => {
                   return <Tag key={tag.id} label={tag.name} path={tag.uri} />
                 })}
               </div>
@@ -57,9 +68,10 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
                   Découvrir
                 </Text>
                 <div>
-                  {projectDetails.links.map((link) => {
+                  {links && links.map((link, index) => {
                     return (
                       <ExternalLinkButton
+                        key={index}
                         label={link.label}
                         side="right"
                         link={link.link}
@@ -78,7 +90,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
                 </Text>
                 <div>
                   <Text type="custom" className="text-sm">
-                    {projectDetails.year}
+                    {year}
                   </Text>
                 </div>
               </div>

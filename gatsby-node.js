@@ -117,10 +117,20 @@ async function getPosts({ graphql, reporter }) {
               label,
               link
             }
+            gallery {
+              gatsbyImage (
+                width: 1200,
+                height: 1200,
+                placeholder: BLURRED,
+                quality: 100
+              )
+              altText
+            }
           }
           uri
           tags {
             nodes {
+              id
               name
               uri
             }

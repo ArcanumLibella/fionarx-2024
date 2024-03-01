@@ -20,7 +20,7 @@ export const blockRendererComponent = (block) => {
           <GatsbyImage 
             style={getStyles(block)}
             image={block.attributes.gatsbyImage}
-            alt={block.attributes.alt || 'An image'}
+            alt={block.attributes.alt || ''}
             width={block.attributes.width}
             height={block.attributes.height}
           />
