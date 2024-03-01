@@ -11,15 +11,17 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
   return (
     <MainLayout>
       <div className="flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
-        {/* <GatsbyImage
-          image={image}
-          alt="Aperçu du projet"
-          imgClassName="h-full"
-        /> */}
+        <div className="overflow-hidden h-[60vh] xl:max-h-screen xl:h-screen">
+          {/* <GatsbyImage
+            image={image}
+            alt="Aperçu du projet"
+            imgClassName="h-full"
+          /> */}
+        </div>
         <div className="relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[520px] xl:max-w-[35%]">
           {/* TODO: A revoir */}
           <LinkButton
-            label="Tous les projets"
+            label="Retour"
             side="left"
             path="/projets"
             className="absolute top-10"
