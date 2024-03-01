@@ -112,7 +112,11 @@ async function getPosts({ graphql, reporter }) {
           title
           blocks
           projectDetails {
-            year
+            year,
+            links {
+              label,
+              link
+            }
           }
           uri
           tags {

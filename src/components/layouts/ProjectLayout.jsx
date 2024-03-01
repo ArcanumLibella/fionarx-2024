@@ -8,6 +8,7 @@ import { ExternalLinkButton } from "../molecules/ExternalLinkButton";
 // import { GatsbyImage } from "gatsby-plugin-image";
 
 export const ProjectLayout = ({title, tags, projectDetails, children}) => {  
+  console.log("projectDetails : ", projectDetails)
   return (
     <MainLayout>
       <div className="flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
@@ -19,7 +20,6 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
           /> */}
         </div>
         <div className="relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[520px] xl:max-w-[35%]">
-          {/* TODO: A revoir */}
           <LinkButton
             label="Retour"
             side="left"
@@ -33,8 +33,8 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
               {title}
             </Text>
 
+            {/* TAGS */}
             <div className="justify-between mb-10 md:flex">
-              {/* TAGS */}
               <div className="flex flex-wrap items-start w-full gap-2 mb-8 md:mb-0 md:gap-4">
                 {tags.map((tag) => {
                   return <Tag key={tag.id} label={tag.name} path={tag.uri} />
@@ -48,6 +48,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
             </Text>
 
             <div className="flex justify-between">
+              {/* LINKS */}
               <div className="flex flex-col">
                 <Text
                   type="h6"
@@ -55,15 +56,19 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
                 >
                   Découvrir
                 </Text>
-                <div /* className="mt-0.5 md:mt-1.5 2xl:mt-0.5" */>
-                  {/* TODO: Ajouter liens */}
-                  {/* <ExternalLinkButton
-                    label={label}
-                    side="right"
-                    path={link}
-                  /> */}
+                <div>
+                  {projectDetails.links.map((link) => {
+                    return (
+                      <ExternalLinkButton
+                        label={link.label}
+                        side="right"
+                        link={link.link}
+                      />
+                    )
+                  })}
                 </div>
               </div>
+              {/* YEAR */}
               <div className="flex flex-col">
                 <Text
                   type="h6"
@@ -71,7 +76,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
                 >
                   Année
                 </Text>
-                <div /* className="mt-0.5 md:mt-1.5 2xl:mt-0.5" */>
+                <div>
                   <Text type="custom" className="text-sm">
                     {projectDetails.year}
                   </Text>

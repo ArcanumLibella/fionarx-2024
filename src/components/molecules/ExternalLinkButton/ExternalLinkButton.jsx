@@ -8,6 +8,8 @@ export const ExternalLinkButton = ({
   link,
   className: additionalStyle,
 }) => {
+
+  console.log("link : ", link)
   // const handleSideArrow = () => {
   //   if (side === "left") {
   //     return (
@@ -24,7 +26,7 @@ export const ExternalLinkButton = ({
       href={link}
       target="_blank"
       className={`
-        flex items-center z-30 group 
+        flex items-center z-30 group cursor-pointer
         ${side === "left" && "flex-row-reverse"}
         ${additionalStyle}
       `}
