@@ -36,7 +36,7 @@ export const LinkButton = ({
         ${additionalStyle}
       `}
     >
-      <Text type="custom" className="font-bold uppercase">
+      <Text type="h6" className="font-bold text-white uppercase">
         {label}
       </Text>
       {/* {handleSideArrow()} */}
