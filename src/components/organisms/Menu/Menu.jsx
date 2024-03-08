@@ -119,8 +119,24 @@ export const Menu = () => {
                     label="Accueil"
                     path="/"
                   />
+                  <MenuItem
+                    toggleMenuItem={toggleMenuItem}
+                    label="Projets"
+                    path="/projects/"
+                  />
                 </motion.li>
               )}
+              <motion.li
+                key="Projets"
+                variants={menuItemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                <MenuItem
+                  toggleMenuItem={toggleMenuItem}
+                  label="Projets"
+                  path="/projects/"
+                />
+              </motion.li>
               {menuItems.map((item) => {
                 return (
                   <motion.li
@@ -128,7 +144,11 @@ export const Menu = () => {
                     variants={menuItemVariants}
                     whileHover={{ scale: 1.05 }}
                   >
-                    <MenuItem toggleMenuItem={toggleMenuItem} {...item} />
+                    <MenuItem 
+                      toggleMenuItem={toggleMenuItem}
+                      label={item.label}
+                      path={item.path.uri}
+                    />
                   </motion.li>
                 );
               })}
