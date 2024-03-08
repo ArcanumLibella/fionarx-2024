@@ -8,7 +8,7 @@ const Page = (props) => {
   const { title, blocks } = props.pageContext
 
   return (
-    <PageLayout title={title} className="overflow-y-auto xl:pb-48">
+    <PageLayout title={title} className="overflow-y-auto xl:pb-96 2xl:pb-[36rem]">
       <BlockRendererProvider 
         allBlocks={blocks} 
         renderComponent={blockRendererComponent}

@@ -63,7 +63,7 @@ export const ProjectCard = ({
                 <img
                   src={image.node.sourceUrl}
                   alt={image.node.altText}
-                  className="h-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </figure>
             )}
