@@ -5,7 +5,7 @@ import { Blobs } from "../organisms/Blobs";
 import { Text } from "../atoms/Text";
 import { Tag } from "../atoms/Tag";
 
-export const ProjectsLayout = ({ children }) => {
+export const ProjectsLayout = ({ tags, children }) => {
   return (
     <MainLayout>
       <div className="flex flex-col justify-center h-full min-h-screen md:pl-20">
@@ -16,12 +16,9 @@ export const ProjectsLayout = ({ children }) => {
             Filtrer les projets
           </Text>
           <div className="flex flex-wrap items-start w-full gap-2 md:gap-4">
-            {/* TODO: A dynamiser ! */}
-            <Tag label={"tag"}/>
-            <Tag label={"tag"}/>
-            <Tag label={"tag"}/>
-            <Tag label={"tag"}/>
-            <Tag label={"tag"}/>
+            {tags.map((tag) => (
+              <Tag key={tag.databaseId} label={tag.name} uri={tag.uri} />
+            ))}
           </div>
         </div>
         <div className="flex items-center h-full gap-16 px-8 overflow-x-auto overflow-y-hidden xl:gap-[6vw] md:px-12 lg:px-24 xl:px-32">

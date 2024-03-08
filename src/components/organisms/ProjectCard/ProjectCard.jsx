@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
 import { AnimatePresence, motion } from "framer-motion";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { COLORS } from "../../../constants/Colors";
 import { Tag } from "../../atoms/Tag";
-
-// import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 
 const cardVariants = {
   initial: {
@@ -37,10 +36,10 @@ const titleVariants = {
 export const ProjectCard = ({
   title,
   tags,
-  slug,
-  imageData,
+  uri,
+  image,
 }) => {
-  // const image = getImage(imageData);
+  // TODO: Ajouter le loading avec un skeleton dans le composant ?
 
   return (
     <AnimatePresence>
@@ -54,18 +53,23 @@ export const ProjectCard = ({
         className="h-[75vh] max-h-[75vh] cursor-pointer"
       >
         <Link
-          to={`/projects/${slug}`}
+          to={uri}
           className="relative inline-block w-[70vw] md:w-[32vw] xl:w-[20vw] max-w-[480px]
             h-[75vh]"
         >
           {/* IMAGE */}
           <div className="absolute h-[68vh] w-[70vw] md:w-[32vw] xl:w-[20vw] max-w-[480px] bg-purple-light">
-            {/* <GatsbyImage
-              image={image}
-              alt="Project's preview"
-              objectFit="cover"
-              className="w-full h-full"
-            /> */}
+            {image && (
+              <figure key={image.node.databaseId}>
+                {/* FIXME: */}
+                <GatsbyImage
+                  image={image.node.sourceUrl}
+                  alt={image.node.altText}
+                  objectFit="cover"
+                  className="w-full h-full"
+                />
+              </figure>
+            )}
           </div>
 
           {/* TITLE */}
@@ -78,14 +82,10 @@ export const ProjectCard = ({
           </motion.h2>
 
           {/* TAGS */}
-          <div className="absolute flex flex-wrap items-start w-full gap-2 md:gap-4 top-[70vh]">
-            {/* {tags
-              .split(",")
-              .map((tag) => tag.trim())
-              .filter((tag) => tag.length > 0)
-              .map((tag) => ( */}
-                <Tag key={"tag"} label={"tag"} />
-              {/* ))} */}
+          <div className="absolute flex flex-wrap items-start w-full gap-2 top-[70vh]">
+            {tags.nodes.map((tag) => (
+              <Tag key={tag.databaseId} label={tag.name} uri={tag.uri} />
+            ))}
           </div>
         </Link>
       </motion.div>
