@@ -28,7 +28,7 @@ const cardVariants = {
 
 const titleVariants = {
   hover: {
-    scale: 1.1,
+    scale: 1.05,
     color: COLORS.tomato.DEFAULT,
   },
 };
@@ -49,16 +49,15 @@ export const ProjectCard = ({
         animate="end"
         exit={{ scale: 1, transition: { delay: 0.7, duration: 0.3 } }}
         variants={cardVariants}
-        whileHover={{ scale: 1.1, transition: { when: "afterChildren" } }}
-        className="h-[75vh] max-h-[75vh] cursor-pointer"
+        whileHover={{ scale: 1.05, transition: { when: "afterChildren" } }}
+        className="ProjectCard h-[64vh] max-h-[64vh] cursor-pointer"
       >
         <Link
           to={uri}
-          className="relative inline-block w-[70vw] md:w-[32vw] xl:w-[20vw] max-w-[480px]
-            h-[75vh]"
+          className="relative inline-block w-[74vw] md:w-[32vw] xl:w-[20vw] max-w-[480px] h-full"
         >
           {/* IMAGE */}
-          <div className="absolute h-[68vh] w-[70vw] md:w-[32vw] xl:w-[20vw] max-w-[480px] bg-purple-light">
+          <div className="ProjectCard__image absolute h-[62vh] w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] bg-purple-light">
             {image && (
               <figure key={image.node.databaseId}>
                 {/* FIXME: */}
@@ -76,13 +75,13 @@ export const ProjectCard = ({
           <motion.h2
             variants={titleVariants}
             whileHover="hover"
-            className="drop-shadow-lg absolute flex justify-center items-center h-full w-[70vw] md:w-[32vw] xl:w-[20vw] max-w-[480px] text-[4.5vh] md:text-[3vh] xl:text-[2.8vw] font-black text-center uppercase font-brother text-white"
+            className="ProjectCard__title drop-shadow-lg absolute flex justify-center items-center h-full w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] text-[4.5vh] md:text-[3vh] xl:text-[2.8vw] font-black text-center uppercase font-brother text-white"
           >
             {title}
           </motion.h2>
 
           {/* TAGS */}
-          <div className="absolute flex flex-wrap items-start w-full gap-2 top-[70vh]">
+          <div className="ProjectCard__tags absolute flex flex-wrap items-start w-full gap-2 bottom-[6%] left-[4%] md:top-[64vh] md:left-0">
             {tags.nodes.map((tag) => (
               <Tag key={tag.databaseId} label={tag.name} uri={tag.uri} />
             ))}

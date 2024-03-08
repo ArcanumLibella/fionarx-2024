@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Blobs = ({ className }) => {
   return (
-    <div className={`${className} -z-10`}>
+    <div className={`Blobs ${className} -z-10`}>
       <div className="absolute w-full h-full animate-movement animate-transform bg-twilight" />
       <div className="absolute w-[104%] h-[104%] animate-movement animate-transform bg-transparent border-4 border-purple blur-lg" />
       <div className="absolute w-[96%] h-[96%] animate-movement animate-transform3s bg-transparent border border-purple-ultraLight" />

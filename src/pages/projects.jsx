@@ -19,7 +19,6 @@ const GET_ALL_PROJECTS = gql`
               databaseId
             }
           }
-          excerpt
           featuredImage {
             node {
               databaseId
