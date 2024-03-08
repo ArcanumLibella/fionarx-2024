@@ -59,13 +59,11 @@ export const ProjectCard = ({
           {/* IMAGE */}
           <div className="ProjectCard__image absolute h-[62vh] w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] bg-purple-light">
             {image && (
-              <figure key={image.node.databaseId}>
-                {/* FIXME: */}
-                <GatsbyImage
-                  image={image.node.sourceUrl}
+              <figure key={image.node.databaseId} className="h-full">
+                <img
+                  src={image.node.sourceUrl}
                   alt={image.node.altText}
-                  objectFit="cover"
-                  className="w-full h-full"
+                  className="h-full object-cover"
                 />
               </figure>
             )}

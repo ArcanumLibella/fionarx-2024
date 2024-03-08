@@ -34,10 +34,10 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
           <LinkButton
             label="Retour"
             side="left"
-            path="/projets"
+            path="/projects"
             className="absolute top-10"
           />
-          <Blobs className="hidden fixed xl:flex justify-center items-center xl:-right-1/10 xl:-top-1/5 w-[56vw] h-[40vh] xl:w-[40vw] xl:h-[48vh] 2xl:w-[35vw] 2xl:h-[44vh] z-0" />
+          <Blobs className="hidden fixed xl:flex justify-center items-center xl:-right-1/10 xl:-top-1/5 w-[56vw] h-[40vh] xl:w-[40vw] xl:h-[48vh] 2xl:w-[35vw] 2xl:h-[44vh]" />
           <div className="pt-16 md:pt-12 xl:pt-0">
             {/* TITLE */}
             <Text type="h3" className="mb-4 normal-case">
