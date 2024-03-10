@@ -2,26 +2,27 @@
 import React from "react";
 import { GithubIcon, InstagramIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
 import { COLORS } from "../../../constants/Colors";
+import { LINKS } from "../../../constants/Links";
 
 const socialIcons = [
   {
     label: 'Linkedin',
-    path: 'https://www.linkedin.com/in/fionaroux/',
+    path: LINKS.linkedin,
     icon: <LinkedinIcon fill={COLORS.white.DEFAULT} className="transition-all duration-300 hover:fill-tomato" />
   },
   {
     label: 'Malt',
-    path: 'https://www.malt.fr/profile/fionaroux',
+    path: LINKS.malt,
     icon: <MaltIcon fill={COLORS.white.DEFAULT} className="transition-all duration-300 hover:fill-tomato" />
   },
   {
     label: 'Github',
-    path: 'https://github.com/ArcanumLibella',
+    path: LINKS.github,
     icon: <GithubIcon fill={COLORS.white.DEFAULT} className="transition-all duration-300 hover:fill-tomato" />
   },
   {
     label: 'Instagram',
-    path: 'https://www.instagram.com/sukhakulii/',
+    path: LINKS.instagram,
     icon: <InstagramIcon fill={COLORS.white.DEFAULT} className="transition-all duration-300 hover:fill-tomato" />
   },
 ];

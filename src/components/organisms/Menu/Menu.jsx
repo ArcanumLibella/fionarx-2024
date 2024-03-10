@@ -7,8 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NavButton } from "../../molecules/NavButton";
 import { MenuItem } from "../../atoms/MenuItem";
 
-import { GithubIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
+import { GithubIcon, InstagramIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
 import { COLORS } from "../../../constants/Colors";
+import { LINKS } from "../../../constants/Links";
 
 // TODO: Externaliser ces constantes
 const menuItemsVariants = {
@@ -153,7 +154,6 @@ export const Menu = () => {
                 );
               })}
             </motion.ul>
-            {/* TODO: A refaire plus tard */}
             {isMobile && (
               <motion.div
                 initial="closed"
@@ -163,7 +163,7 @@ export const Menu = () => {
                 className="absolute z-50 flex items-center gap-4 h-14 right-20 bottom-2 "
               >
                 <motion.a
-                  href="https://www.malt.fr/profile/fionaroux"
+                  href={LINKS.malt}
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ scale: 1.2 }}
@@ -177,7 +177,7 @@ export const Menu = () => {
                   />
                 </motion.a>
                 <motion.a
-                  href="https://www.linkedin.com/in/fionaroux/"
+                  href={LINKS.linkedin}
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ scale: 1.2 }}
@@ -191,13 +191,27 @@ export const Menu = () => {
                   />
                 </motion.a>
                 <motion.a
-                  href="https://github.com/ArcanumLibella"
+                  href={LINKS.github}
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ scale: 1.2 }}
                   variants={menuItemVariants}
                 >
                   <GithubIcon
+                    fill={COLORS.purple.DEFAULT}
+                    height={32}
+                    width={32}
+                    className="transition-all duration-300 hover:fill-purple-light"
+                  />
+                </motion.a>
+                <motion.a
+                  href={LINKS.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  variants={menuItemVariants}
+                >
+                  <InstagramIcon
                     fill={COLORS.purple.DEFAULT}
                     height={32}
                     width={32}
