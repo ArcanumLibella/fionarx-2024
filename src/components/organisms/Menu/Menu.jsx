@@ -111,21 +111,16 @@ export const Menu = () => {
               variants={menuItemsVariants}
             >
               {isMobile && (
-                <motion.li
-                  variants={menuItemVariants}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <MenuItem
-                    toggleMenuItem={toggleMenuItem}
-                    label="Accueil"
-                    path="/"
-                  />
-                  <MenuItem
-                    toggleMenuItem={toggleMenuItem}
-                    label="Projets"
-                    path="/projects/"
-                  />
-                </motion.li>
+                  <motion.li
+                    variants={menuItemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <MenuItem
+                      toggleMenuItem={toggleMenuItem}
+                      label="Accueil"
+                      path="/"
+                    />
+                  </motion.li>
               )}
               <motion.li
                 key="Projets"
