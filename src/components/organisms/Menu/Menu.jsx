@@ -103,7 +103,7 @@ export const Menu = () => {
             className="Menu fixed z-40 overflow-hidden xl:max-w-8/12"
           >
             <motion.ul
-              className="flex flex-col justify-center w-full h-screen bg-twilight md:ml-20"
+              className="flex flex-col justify-center w-full h-screen bg-twilight pl-0 md:ml-20"
               key="menuUl"
               initial="closed"
               animate="open"

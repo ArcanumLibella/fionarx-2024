@@ -11,11 +11,11 @@ export const ExternalLinkButton = ({
   const handleSideArrow = () => {
     if (side === "left") {
       return (
-        <ArrowLeftIcon className="mr-1 transition-all group-hover:-translate-x-1" />
+        <ArrowLeftIcon className="mr-1 mb-0.5 transition-all group-hover:-translate-x-1" />
       );
     }
     return (
-      <ArrowRightIcon className="ml-1 transition-all group-hover:translate-x-1" />
+      <ArrowRightIcon className="ml-1 mb-0.5 transition-all group-hover:translate-x-1" />
     );
   };
 
