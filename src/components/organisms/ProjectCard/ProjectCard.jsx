@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import { AnimatePresence, motion } from "framer-motion";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { COLORS } from "../../../constants/Colors";
 import { Tag } from "../../atoms/Tag";
 

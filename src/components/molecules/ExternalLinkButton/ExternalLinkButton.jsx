@@ -1,5 +1,5 @@
 import React from "react";
-// import { ArrowLeftIcon, ArrowRightIcon } from "@/assets/icons";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../../assets/icons";
 import { Text } from "../../atoms/Text";
 
 export const ExternalLinkButton = ({
@@ -8,16 +8,16 @@ export const ExternalLinkButton = ({
   link,
   className: additionalStyle,
 }) => {
-  // const handleSideArrow = () => {
-  //   if (side === "left") {
-  //     return (
-  //       <ArrowLeftIcon className="mr-1 transition-all group-hover:-translate-x-1" />
-  //     );
-  //   }
-  //   return (
-  //     <ArrowRightIcon className="ml-1 transition-all group-hover:translate-x-1" />
-  //   );
-  // };
+  const handleSideArrow = () => {
+    if (side === "left") {
+      return (
+        <ArrowLeftIcon className="mr-1 transition-all group-hover:-translate-x-1" />
+      );
+    }
+    return (
+      <ArrowRightIcon className="ml-1 transition-all group-hover:translate-x-1" />
+    );
+  };
 
   return (
     <a
@@ -33,7 +33,7 @@ export const ExternalLinkButton = ({
       <Text type="custom" className="text-sm">
         {label}
       </Text>
-      {/* {handleSideArrow()} */}
+      {handleSideArrow()}
     </a>
   );
 };
