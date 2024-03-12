@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { AnimatePresence, motion } from "framer-motion";
 import { COLORS } from "../../../constants/Colors";
-import { Tag } from "../../atoms/Tag";
+import { TagType } from "../../atoms/TagType";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const cardVariants = {
@@ -82,7 +82,7 @@ export const ProjectCard = ({
           {/* TAGS */}
           <div className="ProjectCard__tags absolute flex flex-wrap items-start w-full gap-2 bottom-[6%] left-[4%] md:top-[64vh] md:left-0">
             {tags.nodes.map((tag) => (
-              <Tag key={tag.databaseId} label={tag.name} slug={tag.slug} />
+              <TagType key={tag.databaseId} label={tag.name} slug={tag.slug} />
             ))}
           </div>
         </Link>
