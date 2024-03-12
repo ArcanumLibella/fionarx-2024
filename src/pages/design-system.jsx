@@ -5,7 +5,7 @@ import { PageLayout } from "../components/layouts/PageLayout";
 
 const DesignSystemPage = () => {
   return (
-    <PageLayout title="Design System">
+    <PageLayout title="Design System" className="overflow-y-auto xl:pb-96 2xl:pb-[36rem]">
       <Text type="h3" className="text-purple-light">
         Typography
       </Text>
