@@ -130,7 +130,7 @@ export const Menu = () => {
                 <MenuItem
                   toggleMenuItem={toggleMenuItem}
                   label="Projets"
-                  path="/projects/"
+                  path="/projets/"
                 />
               </motion.li>
               {menuItems.map((item) => {

@@ -35,7 +35,7 @@ export const ProjectLayout = ({title, projectDetails, children}) => {
           <LinkButton
             label="Retour"
             side="left"
-            path="/projects"
+            path="/projets"
             className="absolute top-10"
           />
           <Blobs className="hidden fixed xl:flex justify-center items-center xl:-right-1/10 xl:-top-1/5 w-[56vw] h-[40vh] xl:w-[40vw] xl:h-[48vh] 2xl:w-[35vw] 2xl:h-[44vh]" />

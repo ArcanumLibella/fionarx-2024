@@ -178,7 +178,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   //PROJECTS
   createPage({
-    path: `/projects`,
+    path: `/projets`,
     component: pageProjects,
     context: {
       projects: projects.data.allWpPost.edges,

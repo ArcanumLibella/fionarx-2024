@@ -18,7 +18,7 @@ export const ProjectsByCategoriesLayout = ({ name, children }) => {
           <LinkButton
             label="Tous les projets"
             side="left"
-            path="/projects"
+            path="/projets"
             className=""
           />
         </div>
