@@ -6,6 +6,7 @@ import { ListItem } from "../components/molecules/ListItem";
 import { CardService } from "../components/molecules/CardService/CardService";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getClasses, getStyles } from "@webdeveducation/wp-block-tools";
+import { CardsService } from "../components/organisms/CardsService/CardsService";
 
 export const blockRendererComponent = (block) => {  
   switch (block.name) {
@@ -62,6 +63,11 @@ export const blockRendererComponent = (block) => {
           title={block.attributes.data.title}
           description={block.attributes.data.description}
         />
+      )
+    }
+    case "frx/cardsservice": {
+      return (
+        <CardsService />
       )
     }
     default: {
