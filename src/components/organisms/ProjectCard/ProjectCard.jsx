@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
-import { AnimatePresence, motion } from "framer-motion";
-import { COLORS } from "../../../constants/Colors";
-import { TagType } from "../../atoms/TagType";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { AnimatePresence, motion } from "framer-motion";
+import { TagRole } from "../../atoms/TagRole";
+import { COLORS } from "../../../constants/Colors";
 
 const cardVariants = {
   initial: {
@@ -35,7 +35,7 @@ const titleVariants = {
 
 export const ProjectCard = ({
   title,
-  tags,
+  categories,
   uri,
   image,
 }) => {
@@ -79,10 +79,10 @@ export const ProjectCard = ({
             {title}
           </motion.h2>
 
-          {/* TAGS */}
-          <div className="ProjectCard__tags absolute flex flex-wrap items-start w-full gap-2 bottom-[6%] left-[4%] md:top-[64vh] md:left-0">
-            {tags.nodes.map((tag) => (
-              <TagType key={tag.databaseId} label={tag.name} slug={tag.slug} />
+          {/* CATEGORIES */}
+          <div className="ProjectCard__categories absolute flex flex-wrap items-start w-full gap-2 bottom-[6%] left-[4%] md:top-[64vh] md:left-0">
+            {categories && categories.nodes.map((categorie) => (
+              <TagRole key={categorie.databaseId} label={categorie.name} slug={categorie.slug} />
             ))}
           </div>
         </Link>

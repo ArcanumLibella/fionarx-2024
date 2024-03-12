@@ -1,23 +1,23 @@
 import React from "react";
-import { ProjectsByTagsLayout } from "../components/layouts";
+import { ProjectsByCategoriesLayout } from "../components/layouts";
 import { ProjectCard } from "../components/organisms/ProjectCard";
 
-const ProjectsByTags = (props) => {
+const ProjectsByCategories = (props) => {
   const { name, posts } = props.pageContext
 
   return (
-    <ProjectsByTagsLayout name={name}>
+    <ProjectsByCategoriesLayout name={name}>
       {posts?.nodes.map((post) => (
           <ProjectCard
             key={post.databaseId}
             title={post.title}
-            tags={post.tags}
+            categories={post.categories}
             uri={post.uri}
             image={post.featuredImage}
           />
       ))}
-    </ProjectsByTagsLayout>
+    </ProjectsByCategoriesLayout>
   );
 };
 
-export default ProjectsByTags;
+export default ProjectsByCategories;

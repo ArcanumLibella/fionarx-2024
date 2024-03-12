@@ -3,7 +3,7 @@ import { MainLayout } from "./MainLayout";
 import { BlobsLight } from "../organisms/BlobsLight/BlobsLight";
 import { Blobs } from "../organisms/Blobs";
 import { Text } from "../atoms/Text";
-import { TagRole } from "../atoms/TagRole";
+import { TagType } from "../atoms/TagType";
 
 export const ProjectsLayout = ({ tags, children }) => {
   return (
@@ -17,7 +17,7 @@ export const ProjectsLayout = ({ tags, children }) => {
           </Text>
           <div className="ProjectsLayout__tags flex flex-wrap items-start w-full gap-2 md:gap-4">
             {tags && tags.map((tag) => (
-              <TagRole key={tag.node.databaseId} label={tag.node.name} slug={tag.node.slug} />
+              <TagType key={tag.node.databaseId} label={tag.node.name} slug={tag.node.slug} />
             ))}
           </div>
         </div>

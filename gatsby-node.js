@@ -1,6 +1,6 @@
 const path = require("path");
-const { assignIds, assignGatsbyImage } = require("@webdeveducation/wp-block-tools");
 const fs = require("fs");
+const { assignIds, assignGatsbyImage } = require("@webdeveducation/wp-block-tools");
 
 /* 
   TODO: A CLEANER ET MODERNISER :
@@ -10,7 +10,7 @@ const fs = require("fs");
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const pageTemplate = path.resolve("src/templates/Page.jsx");
   const pageProjects = path.resolve("src/templates/Projects.jsx");
-  const pageProjectsByTags = path.resolve("src/templates/ProjectsByTags.jsx");
+  const pageProjectsByCategories = path.resolve("src/templates/ProjectsByCategories.jsx");
 
   const { createPage } = actions;
 
@@ -28,6 +28,78 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           databaseId
           uri
           isFrontPage
+        }
+      }
+    }
+  `);
+
+  const projects = await graphql(`
+    query GetAllProjects {
+      allWpPost {
+        edges {
+          node {
+            id
+            title
+            uri
+            categories {
+              nodes {
+                databaseId
+                name
+                slug
+              }
+            }
+            featuredImage {
+              node {
+                databaseId
+                altText
+                gatsbyImage(width: 1200, height: 1200)
+              }
+            }
+          }
+        }
+      }
+      allWpTag {
+        edges {
+          node {
+            databaseId
+            name
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  const projectsByCategories = await graphql(`
+    query GetAllProjectsByCategories {
+      allWpCategory {
+        edges {
+          node {
+            id
+            name
+            slug
+            posts {
+              nodes {
+                databaseId
+                title
+                featuredImage {
+                  node {
+                    gatsbyImage(width: 1000, height: 1200)
+                    altText
+                  }
+                }
+                uri
+                slug
+                categories {
+                  nodes {
+                    databaseId
+                    name
+                    slug
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -56,11 +128,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     altText
                   }
                 }
-                tags {
+                categories {
                   nodes {
                     databaseId
                     name
-                    uri
                     slug
                   }
                 }
@@ -68,43 +139,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 uri
               }
             }
-          }
-        }
-      }
-    }
-  `);
-
-  const projects = await graphql(`
-    query GetAllProjects {
-      allWpPost {
-        edges {
-          node {
-            id
-            title
-            uri
-            tags {
-              nodes {
-                databaseId
-                name
-                slug
-              }
-            }
-            featuredImage {
-              node {
-                databaseId
-                altText
-                gatsbyImage(width: 1200, height: 1200)
-              }
-            }
-          }
-        }
-      }
-      allWpTag {
-        edges {
-          node {
-            databaseId
-            name
-            slug
           }
         }
       }
@@ -142,11 +176,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   }
 
-  //PROJECTS BY TAGS
-  projectsByTags.data.allWpTag.edges.forEach(({ node }) => {
+  //PROJECTS
+  createPage({
+    path: `/projects`,
+    component: pageProjects,
+    context: {
+      projects: projects.data.allWpPost.edges,
+      tags: projects.data.allWpTag.edges
+    },
+  });
+
+  //PROJECTS BY CATEGORIES
+  projectsByCategories.data.allWpCategory.edges.forEach(({ node }) => {
     createPage({
-      path: `/tags/${node.slug}`,
-      component: pageProjectsByTags,
+      path: `/categories/${node.slug}`,
+      component: pageProjectsByCategories,
       context: {
         id: node.id,
         name: node.name,
@@ -156,14 +200,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
-  //PROJECTS
-  createPage({
-    path: `/projects`,
-    component: pageProjects,
-    context: {
-      projects: projects.data.allWpPost.edges,
-      tags: projects.data.allWpTag.edges
-    },
+  //PROJECTS BY TAGS
+  projectsByTags.data.allWpTag.edges.forEach(({ node }) => {
+    createPage({
+      path: `/tags/${node.slug}`,
+      component: pageProjectsByCategories,
+      context: {
+        id: node.id,
+        name: node.name,
+        posts: node.posts,
+        tags: node.tags
+      },
+    });
   });
 
     // Query our posts from the GraphQL server
@@ -233,14 +281,17 @@ async function getPosts({ graphql, reporter }) {
               )
               altText
             }
+            technos {
+              label
+              slug
+            }
           }
           uri
-          tags {
+          categories {
             nodes {
-              id
+              databaseId
               name
               slug
-              uri
             }
           }
         }

@@ -2,17 +2,17 @@ import React from "react";
 import { Blobs } from "../organisms/Blobs";
 import { Text } from "../atoms/Text";
 import { MainLayout } from "./MainLayout";
-import { TagRole } from "../atoms/TagRole";
 import { LinkButton } from "../molecules/LinkButton";
 import { ExternalLinkButton } from "../molecules/ExternalLinkButton";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { TagTechno } from "../atoms/TagTechno";
 
-export const ProjectLayout = ({title, tags, projectDetails, children}) => {
-  const { year, links, gallery } = projectDetails
+export const ProjectLayout = ({title, projectDetails, children}) => {
+  const { year, links, gallery, technos } = projectDetails
 
   return (
     <MainLayout>
-      <div className="flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
+      <div className="Project flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
         <div className="overflow-auto h-[60vh] xl:max-h-screen xl:h-screen">
           {/* TODO:
             -REVOIR LE STYLE (mobile + desktop)
@@ -20,7 +20,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
           */}
           {gallery && gallery.map((image, index) => {
             return (
-              <figure key={index}>
+              <figure key={index} className="Project__gallery">
                 <GatsbyImage
                   image={image.gatsbyImage}
                   alt={image.altText}
@@ -41,27 +41,27 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
           <Blobs className="hidden fixed xl:flex justify-center items-center xl:-right-1/10 xl:-top-1/5 w-[56vw] h-[40vh] xl:w-[40vw] xl:h-[48vh] 2xl:w-[35vw] 2xl:h-[44vh]" />
           <div className="pt-16 md:pt-12 xl:pt-0">
             {/* TITLE */}
-            <Text type="h3" className="mb-4 normal-case">
+            <Text type="h3" className="Project__title mb-4 normal-case">
               {title}
             </Text>
 
-            {/* TAGS */}
-            <div className="justify-between mb-10 md:flex">
+            {/* TECHNOS */}
+            <div className="Project__technos justify-between mb-10 md:flex">
               <div className="flex flex-wrap items-start w-full gap-2 mb-8 md:mb-0 md:gap-4">
-                {tags && tags.map((tag) => {
-                  return <TagRole key={tag.id} label={tag.name} slug={tag.slug} />
+                {technos && technos.map((techno) => {
+                  return <TagTechno key={techno.slug} label={techno.label} />
                 })}
               </div>
             </div>
 
             {/* DESCRIPTION */}
-            <Text type="paragraph" className="mb-10">
+            <Text type="paragraph" className="Project__description mb-10">
                 {children}
             </Text>
 
             <div className="flex justify-between">
               {/* LINKS */}
-              <div className="flex flex-col">
+              <div className="Project__links flex flex-col">
                 <Text
                   type="h6"
                   className="mb-2"
@@ -82,7 +82,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
                 </div>
               </div>
               {/* YEAR */}
-              <div className="flex flex-col">
+              <div className="Project__year flex flex-col">
                 <Text
                   type="h6"
                   className="mb-2"

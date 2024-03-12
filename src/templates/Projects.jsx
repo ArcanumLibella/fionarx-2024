@@ -4,6 +4,7 @@ import { ProjectCard } from "../components/organisms/ProjectCard";
 
 const Projects = (props) => {
   const { projects, tags } = props.pageContext
+  console.log("props : ", props)
 
   return (
     <ProjectsLayout tags={tags}>
@@ -11,7 +12,7 @@ const Projects = (props) => {
           <ProjectCard
             key={project.node.databaseId}
             title={project.node.title}
-            tags={project.node.tags}
+            categories={project.node.categories}
             uri={project.node.uri}
             image={project.node.featuredImage}
           />
