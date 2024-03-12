@@ -6,7 +6,7 @@ import { ProjectLayout } from "../components/layouts";
 
 const ProjectPage = (props) => {
   const { title, blocks, projectDetails } = props.pageContext
-  console.log("props", props)
+
   return (
     <ProjectLayout
       title={title}

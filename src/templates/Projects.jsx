@@ -4,7 +4,6 @@ import { ProjectCard } from "../components/organisms/ProjectCard";
 
 const Projects = (props) => {
   const { projects, tags } = props.pageContext
-  console.log("props : ", props)
 
   return (
     <ProjectsLayout tags={tags}>
