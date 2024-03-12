@@ -3,8 +3,6 @@ import { Blobs } from "../organisms/Blobs";
 import { BlobsLight } from "../organisms/BlobsLight/BlobsLight";
 import { Text } from "../atoms/Text";
 import { MainLayout } from "./MainLayout";
-import { Separator } from "../atoms/Separator";
-import { ButtonLarge } from "../molecules/ButtonLarge";
 import { Footer } from "../organisms/Footer";
 
 export const PageLayout = ({title, children, className: additionalStyle}) => {

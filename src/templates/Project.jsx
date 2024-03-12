@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import { ProjectLayout } from "../components/layouts";
 
 const ProjectPage = (props) => {
-  console.log("PROPS : ", props);
   const { title, blocks, tags, projectDetails } = props.pageContext
 
   return (

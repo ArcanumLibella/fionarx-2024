@@ -16,8 +16,8 @@ export const ProjectsLayout = ({ tags, children }) => {
             Filtrer les projets
           </Text>
           <div className="ProjectsLayout__tags flex flex-wrap items-start w-full gap-2 md:gap-4">
-            {tags.map((tag) => (
-              <Tag key={tag.databaseId} label={tag.name} uri={tag.uri} />
+            {tags && tags.map((tag) => (
+              <Tag key={tag.node.databaseId} label={tag.node.name} slug={tag.node.slug} />
             ))}
           </div>
         </div>

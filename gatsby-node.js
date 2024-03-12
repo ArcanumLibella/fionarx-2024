@@ -4,16 +4,19 @@ const fs = require("fs");
 
 /* 
   TODO: A CLEANER ET MODERNISER :
-  -utiliser .map plutot que for ?
+  -utiliser .forEach ou .map plutot que for ?
   -uniformiser le code
 */
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const pageTemplate = path.resolve("src/templates/Page.jsx");
+  const pageProjects = path.resolve("src/templates/Projects.jsx");
+  const pageProjectsByTags = path.resolve("src/templates/ProjectsByTags.jsx");
 
   const { createPage } = actions;
 
+  // QUERIES
   const { data } = await graphql(`
-    query AllPagesQuery {
+    query GetAllPages {
       wp {
         themeStylesheet
       }
@@ -30,12 +33,92 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `);
 
+  const projectsByTags = await graphql(`
+    query GetAllProjectsByTags {
+      allWpTag {
+        edges {
+          node {
+            id
+            name
+            uri
+            slug
+            posts {
+              nodes {
+                databaseId
+                featuredImage {
+                  node {
+                    gatsbyImage (
+                      width: 1200,
+                      height: 1200,
+                      placeholder: BLURRED,
+                      quality: 100
+                    )
+                    altText
+                  }
+                }
+                tags {
+                  nodes {
+                    databaseId
+                    name
+                    uri
+                    slug
+                  }
+                }
+                title
+                uri
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const projects = await graphql(`
+    query GetAllProjects {
+      allWpPost {
+        edges {
+          node {
+            id
+            title
+            uri
+            tags {
+              nodes {
+                databaseId
+                name
+                slug
+              }
+            }
+            featuredImage {
+              node {
+                databaseId
+                altText
+                gatsbyImage(width: 1200, height: 1200)
+              }
+            }
+          }
+        }
+      }
+      allWpTag {
+        edges {
+          node {
+            databaseId
+            name
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  // To get theme style from BO
   try {
-    fs.writeFileSync("./public/themeStylesheet.css", data.wp.themeStylesheet); // To get theme style from BO
+    fs.writeFileSync("./public/themeStylesheet.css", data.wp.themeStylesheet);
   } catch (error) {}
   
+  //PAGES
+  // TODO: À refactoriser !
   const allPages = data.allWpPage.nodes;
-
   for (let i = 0; i < allPages.length; i++) {
     const page = allPages[i];
     let blocks = page.blocks;
@@ -58,6 +141,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     })
   }
+
+  //PROJECTS BY TAGS
+  projectsByTags.data.allWpTag.edges.forEach(({ node }) => {
+    createPage({
+      path: `/tags/${node.slug}`,
+      component: pageProjectsByTags,
+      context: {
+        id: node.id,
+        name: node.name,
+        posts: node.posts,
+        tags: node.tags
+      },
+    });
+  });
+
+  //PROJECTS
+  createPage({
+    path: `/projects`,
+    component: pageProjects,
+    context: {
+      projects: projects.data.allWpPost.edges,
+      tags: projects.data.allWpTag.edges
+    },
+  });
 
     // Query our posts from the GraphQL server
     const posts = await getPosts({ graphql, reporter })
@@ -132,6 +239,7 @@ async function getPosts({ graphql, reporter }) {
             nodes {
               id
               name
+              slug
               uri
             }
           }

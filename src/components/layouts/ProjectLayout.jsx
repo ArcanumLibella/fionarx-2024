@@ -9,6 +9,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 export const ProjectLayout = ({title, tags, projectDetails, children}) => {
   const { year, links, gallery } = projectDetails
+
   return (
     <MainLayout>
       <div className="flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
@@ -48,7 +49,7 @@ export const ProjectLayout = ({title, tags, projectDetails, children}) => {
             <div className="justify-between mb-10 md:flex">
               <div className="flex flex-wrap items-start w-full gap-2 mb-8 md:mb-0 md:gap-4">
                 {tags && tags.map((tag) => {
-                  return <Tag key={tag.id} label={tag.name} path={tag.uri} />
+                  return <Tag key={tag.id} label={tag.name} slug={tag.slug} />
                 })}
               </div>
             </div>

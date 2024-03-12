@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { AnimatePresence, motion } from "framer-motion";
 import { COLORS } from "../../../constants/Colors";
 import { Tag } from "../../atoms/Tag";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const cardVariants = {
   initial: {
@@ -39,7 +40,6 @@ export const ProjectCard = ({
   image,
 }) => {
   // TODO: Ajouter le loading avec un skeleton dans le composant ?
-
   return (
     <AnimatePresence>
       {/* TODO: Add animation on page loading */}
@@ -58,10 +58,12 @@ export const ProjectCard = ({
           {/* IMAGE */}
           <div className="ProjectCard__image absolute h-[62vh] w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] bg-purple-light">
             {image && (
-              <figure key={image.node.databaseId} className="h-full">
-                <img
-                  src={image.node.sourceUrl}
+              <figure className="h-full">
+                <GatsbyImage
+                  image={image.node.gatsbyImage}
                   alt={image.node.altText}
+                  width={image.node.width}
+                  height={image.node.height}
                   className="w-full h-full object-cover"
                 />
               </figure>
@@ -80,7 +82,7 @@ export const ProjectCard = ({
           {/* TAGS */}
           <div className="ProjectCard__tags absolute flex flex-wrap items-start w-full gap-2 bottom-[6%] left-[4%] md:top-[64vh] md:left-0">
             {tags.nodes.map((tag) => (
-              <Tag key={tag.databaseId} label={tag.name} uri={tag.uri} />
+              <Tag key={tag.databaseId} label={tag.name} slug={tag.slug} />
             ))}
           </div>
         </Link>
