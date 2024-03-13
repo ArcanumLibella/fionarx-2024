@@ -7,6 +7,7 @@ import { CardService } from "../components/molecules/CardService/CardService";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getClasses, getStyles } from "@webdeveducation/wp-block-tools";
 import { CardsService } from "../components/organisms/CardsService/CardsService";
+import { ContactForm } from "../components/organisms/ContactForm";
 
 export const blockRendererComponent = (block) => {  
   switch (block.name) {
@@ -68,6 +69,15 @@ export const blockRendererComponent = (block) => {
     case "frx/cardsservice": {
       return (
         <CardsService />
+      )
+    }
+    case "contact-form-7/contact-form-selector": {
+      return (
+        <ContactForm
+          key={block.id}
+          formId={block.attributes.id}
+          formMarkup={block.attributes.formMarkup}
+        />
       )
     }
     default: {

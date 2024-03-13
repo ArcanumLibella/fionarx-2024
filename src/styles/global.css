@@ -131,7 +131,6 @@ body .is-layout-constrained > div {
 }
 
 /* COMPONENT OVERHIDING */
-
 body .is-layout-constrained > .wp-block-spacer {
     margin-block-start: unset;
     margin-block-end: unset;
@@ -171,4 +170,26 @@ body .is-layout-constrained > a {
 
 body a {
   text-decoration: none;
+}
+
+/* Forms */
+
+@layer base {
+  form {
+    margin-block-start: auto !important;
+  }
+
+  fieldset {
+    @apply pb-8;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply w-full !py-2 !rounded-md;
+  }
+
+  label {
+    @apply pb-4;
+  }
 }
