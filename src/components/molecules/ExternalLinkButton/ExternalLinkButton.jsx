@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../../assets/icons";
 import { Text } from "../../atoms/Text";
+import { COLORS } from "../../../constants/Colors";
 
 export const ExternalLinkButton = ({
   side = "right",
@@ -11,11 +12,17 @@ export const ExternalLinkButton = ({
   const handleSideArrow = () => {
     if (side === "left") {
       return (
-        <ArrowLeftIcon className="mr-1 mb-0.5 transition-all group-hover:-translate-x-1" />
+        <ArrowLeftIcon
+          className="mr-1 mb-0.5 transition-all group-hover:-translate-x-1"
+          fill={COLORS.tomato.DEFAULT}
+        />
       );
     }
     return (
-      <ArrowRightIcon className="ml-1 mb-0.5 transition-all group-hover:translate-x-1" />
+      <ArrowRightIcon 
+        className="ml-1 mb-0.5 transition-all group-hover:translate-x-1"
+        fill={COLORS.tomato.DEFAULT}
+      />
     );
   };
 
