@@ -9,7 +9,7 @@ const Projects = (props) => {
     <ProjectsLayout tags={tags}>
       {projects.map((project) => (
           <ProjectCard
-            key={project.node.databaseId}
+            key={project.node.id}
             title={project.node.title}
             categories={project.node.categories}
             uri={project.node.uri}

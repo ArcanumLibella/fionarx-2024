@@ -31,9 +31,9 @@ export const useOuterClick = (
           eventType || "mousedown",
           handleClick,
         );
-    } else {
+    } /* else {
       console.error("innerRef.current n'est pas un élément DOM valide ou la méthode .closest() n'est pas disponible");
-    }
+    } */
 
     // read most recent callback and innerRef dom node from refs
     function handleClick(e) {
