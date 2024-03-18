@@ -30,10 +30,11 @@ const socialIcons = [
 export const SocialIcons = ({
   className: additionalStyle,
 }) => {
-  const renderedSocialIcons = socialIcons.map((icon) => {
+  const renderedSocialIcons = socialIcons.map((icon, index) => {
     return (
       <a
         href={icon.path}
+        key={index}
         target="_blank"
         rel="noreferrer"
         aria-label={`Lien vers ${icon.label}`}
