@@ -35,6 +35,7 @@ export const blockRendererComponent = (block) => {
           key={block.id}
           label={block.attributes.data.label}
           path={block.attributes.data.path}
+          externalLink={block.attributes.data.path_external.url}
           align={block.attributes.data.align}
           style={block.attributes.data.style}
         />
@@ -68,7 +69,17 @@ export const blockRendererComponent = (block) => {
     }
     case "frx/cardsservice": {
       return (
-        <CardsService />
+        <CardsService key={block.id} />
+      )
+    }
+    case "forminator/forms": {
+      console.log("block : ", block)
+      return (
+        <ContactForm
+          key={block.id}
+          formId={block.attributes.id}
+          formMarkup={block.attributes.formMarkup}
+        />
       )
     }
     case "contact-form-7/contact-form-selector": {
