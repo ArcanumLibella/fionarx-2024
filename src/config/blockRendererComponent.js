@@ -35,7 +35,7 @@ export const blockRendererComponent = (block) => {
           key={block.id}
           label={block.attributes.data.label}
           path={block.attributes.data.path}
-          externalLink={block.attributes.data.path_external.url}
+          externalLink={block.attributes.data.path_external?.url}
           align={block.attributes.data.align}
           style={block.attributes.data.style}
         />
