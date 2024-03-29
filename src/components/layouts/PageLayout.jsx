@@ -3,7 +3,7 @@ import { Blobs } from "../organisms/Blobs";
 import { BlobsLight } from "../organisms/BlobsLight/BlobsLight";
 import { Text } from "../atoms/Text";
 import { MainLayout } from "./MainLayout";
-import { Footer } from "../organisms/Footer";
+// import { Footer } from "../organisms/Footer";
 
 export const PageLayout = ({title, children, className: additionalStyle}) => {
   return (
@@ -18,7 +18,7 @@ export const PageLayout = ({title, children, className: additionalStyle}) => {
           {children}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> TODO: A réactiver quand je serai prête ! */} 
     </MainLayout>
   )
 };

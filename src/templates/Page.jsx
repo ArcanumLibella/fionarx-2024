@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 
 const Page = (props) => {
   const { title, blocks } = props.pageContext
+  console.log(props)
 
   return (
     <PageLayout title={title} className="overflow-y-auto xl:pb-96 2xl:pb-[36rem]">
