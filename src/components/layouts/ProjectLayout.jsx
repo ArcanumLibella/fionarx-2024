@@ -12,11 +12,11 @@ export const ProjectLayout = ({title, projectDetails, children}) => {
 
   return (
     <MainLayout>
-      <div className="Project flex flex-col justify-between overflow-hidden xl:flex-row md:ml-20 xl:h-screen">
+      <div className="Project flex flex-col justify-between xl:flex-row md:ml-20 xl:h-screen">
         <div className="overflow-auto h-[60vh] xl:max-h-screen xl:h-screen">
           {/* TODO:
             -REVOIR LE STYLE (mobile + desktop)
-            -Remplacer par un slider !
+            -Remplacer par un slider ?
           */}
           {gallery && gallery.map((image, index) => {
             return (

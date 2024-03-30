@@ -172,6 +172,10 @@ body a {
   text-decoration: none;
 }
 
+body figure {
+  margin: 0 !important;
+}
+
 /* Forms */
 
 @layer base {

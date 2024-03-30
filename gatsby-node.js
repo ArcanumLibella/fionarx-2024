@@ -275,7 +275,6 @@ async function getPosts({ graphql, reporter }) {
             gallery {
               gatsbyImage (
                 width: 1200,
-                height: 1200,
                 placeholder: BLURRED,
                 quality: 100
               )
