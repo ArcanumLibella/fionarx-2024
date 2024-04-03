@@ -3,35 +3,7 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { AnimatePresence, motion } from "framer-motion";
 import { TagRole } from "../../atoms/TagRole";
-import { COLORS } from "../../../constants/Colors";
-
-const cardVariants = {
-  initial: {
-    opacity: 0,
-    translateY: "20%",
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    },
-  },
-  end: {
-    opacity: 1,
-    translateY: "0%",
-    transition: {
-      delay: 0.3,
-      duration: 0.3,
-      staggerChildren: 0.2,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const titleVariants = {
-  hover: {
-    scale: 1.05,
-    color: COLORS.tomato.DEFAULT,
-  },
-};
+import { cardVariants, titleVariants } from "./ProjectCard.const";
 
 export const ProjectCard = ({
   title,
@@ -74,7 +46,7 @@ export const ProjectCard = ({
           <motion.h2
             variants={titleVariants}
             whileHover="hover"
-            className="ProjectCard__title drop-shadow-lg absolute flex justify-center items-center h-full w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] text-[4.5vh] md:text-[3vh] xl:text-[2.8vw] font-black text-center uppercase font-brother text-white"
+            className="ProjectCard__title drop-shadow-lg absolute flex justify-center items-center h-full w-full md:w-[32vw] xl:w-[20vw] max-w-[480px] hover:backdrop-blur-xl text-[4.5vh] md:text-[3vh] xl:text-[2.8vw] font-black text-center uppercase font-brother text-white"
           >
             {title}
           </motion.h2>
