@@ -130,7 +130,10 @@ module.exports = {
           '56%': { borderRadius: '61% 39% 67% 33% / 70% 50% 50% 30%' },
           '70%': { borderRadius: '50% 50% 34% 66% / 56% 68% 32% 44%' },
           '84%': { borderRadius: '46% 54% 50% 50% / 35% 61% 39% 65%' },
-        }
+        },
+        down: {
+          '40%': { transform: 'translateY(16%)', opacity: '64%' },
+        },
       },
       animation: {
         'movement': 'movement 4s ease-in-out infinite both',
@@ -138,6 +141,7 @@ module.exports = {
         'transform3s': 'transform 17s ease-in-out infinite both alternate 3s',
         'transform5s': 'transform 17s ease-in-out infinite both alternate 5s',
         'transform8s': 'transform 17s ease-in-out infinite both alternate 8s',
+        'down': 'down 1.2s ease-in-out infinite',
       },
       textFillColor: theme => theme('borderColor'),
       textStrokeColor: theme => theme('borderColor'),

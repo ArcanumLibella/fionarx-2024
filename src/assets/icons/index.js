@@ -8,6 +8,7 @@ import CloseIcon from "./close.svg";
 import ArrowLeftIcon from "./arrow-left.svg";
 import ArrowRightIcon from "./arrow-right.svg";
 import CalendarIcon from "./calendar.svg";
+import ChevronsDownIcon from "./chevrons-down.svg";
 
 export {
   GithubIcon,
@@ -19,5 +20,6 @@ export {
   CloseIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  CalendarIcon
+  CalendarIcon,
+  ChevronsDownIcon
 };

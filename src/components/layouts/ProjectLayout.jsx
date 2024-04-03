@@ -6,6 +6,8 @@ import { LinkButton } from "../molecules/LinkButton";
 import { ExternalLinkButton } from "../molecules/ExternalLinkButton";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { TagTechno } from "../atoms/TagTechno";
+import { ChevronsDownIcon } from "../../assets/icons";
+import { COLORS } from "../../constants/Colors";
 
 export const ProjectLayout = ({title, projectDetails, children}) => {
   const { year, links, gallery, technos } = projectDetails
@@ -13,25 +15,29 @@ export const ProjectLayout = ({title, projectDetails, children}) => {
   return (
     <MainLayout>
       <div className="Project flex flex-col justify-between xl:flex-row md:ml-20 xl:h-screen">
-        <div className="overflow-auto h-[60vh] xl:max-h-screen xl:h-screen">
-          {/* TODO:
-            -REVOIR LE STYLE (mobile + desktop)
-            -Remplacer par un slider ?
-          */}
-          {gallery && gallery.map((image, index) => {
-            return (
-              <figure key={index} className="Project__gallery">
-                <GatsbyImage
-                  image={image.gatsbyImage}
-                  alt={image.altText}
-                  width={image.width}
-                  height={image.height}
-                />
-              </figure>
-            )
-          })}
+        <div className="Project__preview overflow-auto w-full h-[60vh] xl:max-h-screen xl:h-screen xl:text-center bg-purple">
+          <div className="flex justify-center items-end h-full w-full">
+            {gallery && gallery.map((image, index) => {
+              return (
+                <figure key={index} className="Project__gallery h-full">
+                  <GatsbyImage
+                    image={image.gatsbyImage}
+                    alt={image.altText}
+                    width={image.width}
+                    height={image.height}
+                  />
+                </figure>
+              )
+            })}
+            <ChevronsDownIcon 
+              stroke={COLORS.tomato.DEFAULT}
+              width={40}
+              height={40}
+              className="fixed bottom-[42vh] xl:bottom-4 justify-self-auto animate-down z-100"
+            />
+          </div>
         </div>
-        <div className="relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[580px] xl:max-w-[35%]">
+        <div className="Project__description relative flex flex-col-reverse w-full xl:h-screen p-5 pb-10 md:p-10 xl:min-w-[580px] xl:max-w-[35%]">
           <LinkButton
             label="Retour"
             side="left"
