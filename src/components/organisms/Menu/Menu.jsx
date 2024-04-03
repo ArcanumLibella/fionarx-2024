@@ -10,46 +10,7 @@ import { MenuItem } from "../../atoms/MenuItem";
 import { GithubIcon, InstagramIcon, LinkedinIcon, MaltIcon } from "../../../assets/icons";
 import { COLORS } from "../../../constants/Colors";
 import { LINKS } from "../../../constants/Links";
-
-// TODO: Externaliser ces constantes
-const menuItemsVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: -1,
-    },
-  },
-  open: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    },
-  },
-};
-const socialItemsVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    },
-  },
-  open: {
-    transition: {
-      staggerChildren: 0.4,
-      staggerDirection: -1,
-    },
-  },
-};
-const menuItemVariants = {
-  closed: {
-    translateX: "-10%",
-    opacity: 0,
-  },
-  open: {
-    translateX: "10%",
-    opacity: 1,
-  },
-};
+import { menuItemVariants, menuItemsVariants, socialItemsVariants } from "./Menu.const";
 
 export const Menu = () => {
   // TODO: Externaliser cette query
