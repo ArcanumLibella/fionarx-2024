@@ -9,7 +9,7 @@ export const Text = ({
     case "h1":
       return (
         <h1
-          className={`font-black uppercase select-none text-[10vw] lg:text-[8vh] md:text-[8vw] xl:text-[8vh] font-brother text-shadow text-stroke-purple-ultraLight md:text-stroke-2 md:text-fill-transparent opacity-20 md:opacity-40 ${additionalStyle}`}
+          className={`font-black uppercase select-none text-[8vw] lg:text-[6vh] xl:text-[8vh] font-brother text-shadow text-stroke-purple-ultraLight md:text-stroke-2 md:text-fill-transparent opacity-20 md:opacity-40 ${additionalStyle}`}
         >
           {children}
         </h1>
