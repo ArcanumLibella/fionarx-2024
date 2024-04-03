@@ -5,6 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { TagRole } from "../../atoms/TagRole";
 import { cardVariants, titleVariants } from "./ProjectCard.const";
 
+// const skeleton =
+//   <div role="status" className="ProjectCard h-[64vh] max-h-[64vh] w-[74vw] md:w-[32vw] xl:w-[20vw] max-w-[480px] animate-pulse">
+//     <div class="h-2.5 bg-purple-light"></div>
+//     <span class="sr-only">Loading...</span>
+//   </div>
+
 export const ProjectCard = ({
   title,
   categories,
